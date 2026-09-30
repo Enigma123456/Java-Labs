@@ -38,7 +38,6 @@ public class Main {
     private static void addRecord(Scanner scanner, List<JournalRecord> journal) {
         System.out.println("\n--- Введення даних студента ---");
 
-        // Використовуємо допоміжний метод для перевірки формату кожного поля
         String lastName = getValidInput(scanner, "Прізвище: ", "^[А-ЯІЇЄҐа-яіїєґA-Za-z'\\-]+$",
                 "Допускаються лише літери, апостроф та дефіс.");
 
@@ -60,7 +59,6 @@ public class Main {
         String apartment = getValidInput(scanner, "Квартира: ", "^\\d+$",
                 "Номер квартири має містити лише цифри.");
 
-        // Якщо всі перевірки пройдені, створюємо об'єкт і додаємо в список
         JournalRecord record = new JournalRecord(lastName, firstName, birthDate, phoneNumber, street, building, apartment);
         journal.add(record);
         System.out.println("Запис успішно додано!");
@@ -77,7 +75,6 @@ public class Main {
         }
     }
 
-    // Метод, який безкінечно запитує введення, поки воно не співпаде з регулярним виразом
     private static String getValidInput(Scanner scanner, String prompt, String regex, String errorMessage) {
         while (true) {
             System.out.print(prompt);
